@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+#upload-form {
+  margin-bottom: 20px;
+}
+
+#result h2 {
+  margin-top: 40px;
+}
+
+#score {
+  font-size: 2em;
+  color: #4CAF50;
+}
+
+#explanation {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px;
+}
