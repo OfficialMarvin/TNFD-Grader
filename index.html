@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TNFD Report Evaluator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>TNFD Report Evaluator</h1>
+  <form id="upload-form" enctype="multipart/form-data">
+    <input type="file" id="pdf-file" name="pdfFile" accept="application/pdf" required />
+    <button type="submit">Upload and Evaluate</button>
+  </form>
+  <div id="result" style="display: none;">
+    <h2>Evaluation Result</h2>
+    <div id="score"></div>
+    <div id="explanation"></div>
+  </div>
+  <script>
+    const form = document.getElementById('upload-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById('pdf-file');
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append('pdfFile', file);
+
+      const response = await fetch('/evaluate', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('score').innerHTML = `<h3>Score: ${data.score}%</h3>`;
+      document.getElementById('explanation').innerHTML = `<p>${data.explanation}</p>`;
+    });
+  </script>
+</body>
+</html>
