@@ -1,0 +1,16 @@
+{
+  "name": "tnfd-evaluator",
+  "version": "1.0.0",
+  "description": "A simple TNFD report evaluator",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "multer": "^1.4.5",
+    "node-fetch": "^2.6.7"
+  }
+}
